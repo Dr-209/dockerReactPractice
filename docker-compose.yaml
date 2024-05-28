@@ -1,9 +1,38 @@
-version:"26.1.1",
-services:
-build: ./app
-container_name:docker_simple_c
-port:
--"3000:3000";
+version: '3.8'
 
- stdin_open:true
- tty:true
+services:
+  react-app:
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000"
+    environment:
+      - NODE_ENV=development
+
+
+
+# version: '3.8',
+# services:
+#   react-app: 
+#    stdin_open: true
+#    build: 
+#     context: .
+#     dockerfile: Dockerfile
+#     volumes:
+#        - /c/Users/dimpal/Desktop/React/dockersimple/src/App.js/node_modules
+#        - /c/Users/dimpal/Desktop/React/dockersimple:/app
+#     ports:
+#       - "3000:3000"
+#     expose :
+#        -3000
+
+#     tty: true
+ 
