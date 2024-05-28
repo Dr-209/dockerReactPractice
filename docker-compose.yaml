@@ -1,0 +1,9 @@
+version:"26.1.1",
+services:
+build: ./app
+container_name:docker_simple_c
+port:
+-"3000:3000";
+
+ stdin_open:true
+ tty:true
